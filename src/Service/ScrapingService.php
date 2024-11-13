@@ -39,7 +39,7 @@ readonly class ScrapingService
         $driver->quit();
         $searchText = $this->parameterBag->get('search_text');
         if (trim($searchText) !== trim($text)){
-            $this->twilioService->send($this->notifyNumber, "Un RDV été trouvé. Cliquez ici: ".$this->rdvUrl);
+            $this->twilioService->send($this->notifyNumber, "Un créneau de rendez-vous été trouvé. Cliquez ici: ".$this->rdvUrl);
         }
     }
 }
