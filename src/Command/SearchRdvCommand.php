@@ -29,6 +29,8 @@ class SearchRdvCommand extends Command
     {
         $this->scrapingService->searchRdv();
 
+        $output->writeln('<info>Done</info>');
+
         return Command::SUCCESS;
     }
 }
