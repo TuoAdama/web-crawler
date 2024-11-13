@@ -1,0 +1,2 @@
+parameters:
+  search_text: "%env(SEARCH_TEXT)%"

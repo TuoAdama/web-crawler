@@ -26,7 +26,7 @@ services:
       - "3306:3306"
 
   selenium:
-      image: selenium/standalone-chrome:4.26.0-20241101
+      image: selenium/standalone-chrome:112.0-chromedriver-112.0
       platform: linux/x86_64
       ports:
         - "4444:4444"
