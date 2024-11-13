@@ -1,0 +1,37 @@
+
+services:
+  web:
+    build:
+      context: .
+    depends_on:
+      - db
+    env_file:
+      - .env.local
+    volumes:
+      - ./:/var/www/html/
+      - ~/.composer:/var/composer:cached
+      - ./docker/web/vhost.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./docker/web/dev/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/web/dev/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    ports:
+      - "80:80"
+
+  db:
+    image: mysql:8.4.3
+    volumes:
+      - db_data:/var/lib/mysql
+    env_file:
+      - .env.local
+    ports:
+      - "3306:3306"
+
+  selenium:
+      image: selenium/standalone-firefox:4.26.0-20241101
+      ports:
+        - "4444:4444"
+        - "7900:7900"
+      shm_size: "2g"
+
+
+volumes:
+  db_data: {}
