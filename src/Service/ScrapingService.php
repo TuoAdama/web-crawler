@@ -38,7 +38,7 @@ readonly class ScrapingService
         $driver->takeScreenshot("screenshot/screenshot-$time.png");
         $driver->quit();
         $searchText = $this->parameterBag->get('search_text');
-        if (trim($searchText) === trim($text)){
+        if (trim($searchText) !== trim($text)){
             $this->twilioService->send("0751097177", "Un RDV été trouvé. Cliquez ici: ".$this->rdvUrl);
         }
     }
