@@ -39,7 +39,7 @@ class TwilioService
                     'Body' => $message,
                 ]
             );
-            $this->smsLogger->error("SMS Send to {number}, body: {body}", [
+            $this->smsLogger->info("SMS Send to {number}, body: {body}", [
                 'number' => $to,
                 'body' => $message,
             ]);

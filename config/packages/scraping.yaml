@@ -1,0 +1,5 @@
+parameters:
+  search_text: "%env(SEARCH_TEXT)%"
+  server_url: "selenium:4444"
+  notify_number: 0751097177
+  rdv_url: "https://esii-orion.com/orion-reservation/slots?account=EVMSPI&config=SEJOURUSARNVT&usemode=app&code=REN1"
