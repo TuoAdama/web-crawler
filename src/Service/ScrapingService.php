@@ -29,7 +29,7 @@ readonly class ScrapingService
      */
     public function searchRdv(): void
     {
-        $driver = RemoteWebDriver::create($this->serverUrl, DesiredCapabilities::chrome(), 3000);
+        $driver = RemoteWebDriver::create($this->serverUrl, DesiredCapabilities::chrome(), 5000);
         $driver->get($this->rdvUrl);
         sleep(5);
         $element = $driver->findElement(WebDriverBy::cssSelector('.user-msg'));
