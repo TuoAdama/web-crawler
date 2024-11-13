@@ -32,16 +32,18 @@ class TwilioService
     {
         $twilio = new Client($this->accountSID, $this->token);
         try {
-            $twilio->messages->create(
+            $instance = $twilio->messages->create(
                 "+33".$to,
                 [
                     'From' => $this->senderNumber,
                     'Body' => $message,
                 ]
             );
-            $this->smsLogger->info("SMS Send to {number}, body: {body}", [
+
+            $this->smsLogger->info("[status= {status}] SMS Send to {number}, body: {body}", [
                 'number' => $to,
                 'body' => $message,
+                'status' => $instance->status,
             ]);
         } catch (TwilioException $e) {
             $this->smsLogger->error($e->getMessage());
